@@ -1,0 +1,28 @@
+version : '3'
+
+services:
+  db:
+    image: postgres:14.3
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    container_name: teslodb
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+
+  # db2:
+  #   image: mysql:8.0
+  #   restart: always
+  #   ports:
+  #     - "3307:3307"
+  #   expose:
+  #     - "3307"
+  #   environment:
+  #     MYSQL_PASSWORD: ${DB_PASSWORD}
+  #     MYSQL_DATABASE: ${DB_NAME}
+  #   container_name: mysqldb
+  #   volumes:
+  #     - ./mysql:/var/lib/mysql
