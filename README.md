@@ -19,5 +19,5 @@ docker-compose up -d
 ```
 6. Levantar en modo desarrollo
 ```
-npm ru8n start:dev
+npm run start:dev
 ```
