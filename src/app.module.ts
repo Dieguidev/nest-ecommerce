@@ -1,3 +1,4 @@
+import { join } from 'path';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
@@ -6,6 +7,7 @@ import { ProductsModule } from './products/products.module';
 import { CommonModule } from './common/common.module';
 import { SeedModule } from './seed/seed.module';
 import { FilesModule } from './files/files.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
   imports: [
@@ -20,6 +22,10 @@ import { FilesModule } from './files/files.module';
       autoLoadEntities: true,
       synchronize: true, //usualmente en produccion no se sincroniza
     }),
+    //ServeStaticModule implementa contenido estatico
+    // ServeStaticModule.forRoot({
+    //   rootPath: join(__dirname, '..', 'public'),
+    // }),
     ProductsModule,
     CommonModule,
     SeedModule,
